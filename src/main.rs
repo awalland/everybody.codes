@@ -6,4 +6,5 @@ mod quest2;
 mod quest3;
 
 fn main() {
+    quest3::part3::part()
 }
