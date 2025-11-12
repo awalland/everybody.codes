@@ -1,5 +1,8 @@
 use std::fmt::{Debug, Formatter};
+use std::fs::File;
+use std::io::Read;
 use std::ops::{Add, Div, Mul};
+use std::path::Path;
 
 impl Debug for Point {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
@@ -47,4 +50,13 @@ impl Point {
     pub fn new(x: i64, y: i64) -> Self {
         Self { x, y }
     }
+}
+
+pub fn read_file(file_name: &str) -> String {
+    let mut contents_string = String::new();
+    {
+        let mut file = File::open(Path::new(file_name)).expect(&format!("Input file {} does not exist", file_name));
+        file.read_to_string(&mut contents_string).expect("could not read file");
+    }
+    contents_string
 }

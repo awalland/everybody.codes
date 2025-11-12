@@ -7,7 +7,8 @@ mod quest3;
 mod quest4;
 mod quest5;
 mod quest6;
+mod quest7;
 
 fn main() {
-    quest6::part3::part()
+    quest7::part3::part()
 }
